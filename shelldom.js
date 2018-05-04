@@ -73,73 +73,11 @@ const ShellDOM = {
   },
   getShellElement : function(key) {
     return document.querySelector(`[shell-${key}]`);
-  }
-}
-
-
-// AJAX Section
-ShellDOM.ajaxTimer = 0;
-ShellDOM.ajaxURL = '';
-ShellDOM.ajaxInterval = false
-ShellDOM.ajaxAttempts = 0;
-
-
-ShellDOM.ajax = function(timer, url) {
-  this.ajaxTimer = timer;
-  this.ajaxURL = url;
-  this.ajaxInterval = true;
-  this.runAjax();
-};
-
-ShellDOM.pauseAjax = function() {
-  this.ajaxInterval = false;
-};
-
-ShellDOM.runAjax = function() {
-  if(!this.ajaxInterval)
-    return false;
-
-  function handleResponse() {
-    switch(this.readyState) {
-      case 1:
-        // Opened
-        break;
-      case 2:
-        // Headers Received
-        break;
-      case 3:
-        // Loading
-        break;
-      case 4:
-        if(this.status !== 200) {
-          ShellDOM.pauseAjax();
-        } else {
-          if(!ShellDOM.data) {
-            ShellDOM.set(JSON.parse(xhr.responseText));
-            setTimeout(function() {
-              ShellDOM.runAjax();
-            }, ShellDOM.ajaxTimer * 1000)
-          } else {
-            ShellDOM.refreshData(JSON.parse(xhr.responseText));
-            setTimeout(function() {
-              ShellDOM.runAjax();
-            }, ShellDOM.ajaxTimer * 1000)
-          }
-        }
-        break;
-      default:
-        // Misc or not sent yet.
-        break;
+  },
+  extend : function(name, extension) {
+    this[name] = {};
+    for(let k in extension) {
+      this[name][k] = extension[k];
     }
   }
-
-  this.ajaxAttempts += 1;
-
-  let xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = handleResponse;
-
-  xhr.open('GET', ShellDOM.ajaxURL);
-
-  xhr.send();
-};
+}

@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  res.json({ header : 'AJ' }).end();
+  res.json({ header : 'AJAX' }).end();
 })
 
 http.listen(3000, () => { console.log('Listening on port 3000') });
