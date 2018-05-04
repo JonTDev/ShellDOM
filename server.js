@@ -24,10 +24,18 @@ app.get('/update/:value', (req, res) => {
   io.ShellDOM.header = req.params.value;
   console.log(req.params.value);
   res.json(io.ShellDOM).end();
-})
+});
+
+app.get('/io.js', (req, res) => {
+  res.sendFile(`${__dirname}/extensions/io.js`);
+});
+
+app.get('/shelldom.js', (req, res) => {
+  res.sendFile(`${__dirname}/shelldom.js`);
+});
 
 app.get('/api', (req, res) => {
   res.json({ header : 'AJAX' }).end();
-})
+});
 
 http.listen(3000, () => { console.log('Listening on port 3000') });
