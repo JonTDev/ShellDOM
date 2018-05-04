@@ -1,0 +1,32 @@
+{
+  "name": "shelldom",
+  "version": "0.0.3",
+  "description": "A small and simple project that will update data points through out the page either via AJAX or Web Socket to ensure the data is constantly updated.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonTDev/ShellDOM.git"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "websocket",
+    "ajax"
+  ],
+  "author": "Jon Taylor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JonTDev/ShellDOM/issues"
+  },
+  "homepage": "https://github.com/JonTDev/ShellDOM#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.17",
+    "mongoose-simpledb": "^5.1.0",
+    "pug": "^2.0.3",
+    "socket.io": "^2.1.0"
+  }
+}
