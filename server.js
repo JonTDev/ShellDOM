@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+io.ShellDOM = {
+  header: 'ShellDOM.io'
+};
+require('./extensions/socket')(io);
 
 // Setting Render Engine
 app.set('view engine', 'pug');
@@ -15,6 +19,12 @@ app.use('/', express.static(`${__dirname}/views/css`));
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+app.get('/update/:value', (req, res) => {
+  io.ShellDOM.header = req.params.value;
+  console.log(req.params.value);
+  res.json(io.ShellDOM).end();
+})
 
 app.get('/api', (req, res) => {
   res.json({ header : 'AJAX' }).end();

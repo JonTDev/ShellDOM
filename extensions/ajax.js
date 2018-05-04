@@ -3,12 +3,10 @@ ShellDOM.extend('ajax', {
   Timer : 0,
   URL : '',
   Interval : false,
-  Attempts : 0
-});
+  Attempts : 0,
 
-// AJAX Functions
-ShellDOM.extend('ajax', {
-    start : function(timer, url) {
+  // AJAX Functions
+  start : function(timer, url) {
     this.Timer = timer;
     this.URL = url;
     this.Interval = true;
@@ -47,7 +45,7 @@ ShellDOM.extend('ajax', {
         break;
       case 4:
         if(this.status !== 200) {
-          ShellDOM.pauseAjax();
+          ShellDOM.ajax.pause();
         } else {
           if(!ShellDOM.data) {
             ShellDOM.set(JSON.parse(this.responseText));

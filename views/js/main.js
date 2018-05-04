@@ -3,4 +3,5 @@ let obj = {
 }
 
 //obj = ShellDOM.set(obj);
-ShellDOM.ajax.start(5, '/api');
+//ShellDOM.ajax.start(5, '/api');
+ShellDOM.io.start();

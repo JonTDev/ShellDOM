@@ -75,6 +75,8 @@ const ShellDOM = {
     return document.querySelector(`[shell-${key}]`);
   },
   extend : function(name, extension) {
+    if(typeof this[name] !== 'undefined')
+      throw new Error(`The extension ${name} already exists.`);
     this[name] = {};
     for(let k in extension) {
       this[name][k] = extension[k];
