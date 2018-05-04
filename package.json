@@ -1,6 +1,6 @@
 {
   "name": "shelldom",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A small and simple project that will update data points through out the page either via AJAX or Web Socket to ensure the data is constantly updated.",
   "main": "index.js",
   "scripts": {

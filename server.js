@@ -16,4 +16,8 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/api', (req, res) => {
+  res.json({ header : 'AJ' }).end();
+})
+
 http.listen(3000, () => { console.log('Listening on port 3000') });
