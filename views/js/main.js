@@ -1,7 +1,4 @@
-let obj = {
-  header : 'ShellDOM'
-}
+SDOM.init({
+  header : 'Shell Data Object Management (SDOM)'
+});
 
-//obj = ShellDOM.set(obj);
-//ShellDOM.ajax.start(5, '/api');
-ShellDOM.io.start();

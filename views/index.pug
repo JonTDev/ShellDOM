@@ -4,14 +4,15 @@ html(lang='en')
     title ShellDOM
     link(rel="stylesheet" type="text/css" href="/uikit.min.css")
   body.uk-container
+    script
+      |let body = document.querySelector('body').style;
     div(uk-grid="")
       div.uk-width-1-1.uk-text-center
-        h1(shell-header="")
+        h1(rs-header="")
       div.uk-width-1-2
-        input(type="text" SShell="header")
+        input(type="text" ws-header="")
     script(src="/uikit.min.js")
     script(src="/uikit-icons.min.js")
     script(src="/socket.io.js")
-    script(src="/shelldom.js")
-    script(src="/io.js")
+    script(src="/front/shelldom.js")
     script(src="/main.js")

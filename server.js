@@ -9,13 +9,17 @@ require('./extensions/socket')(io);
 
 // Setting Render Engine
 app.set('view engine', 'pug');
+
 // Setting Render view directory
 app.set('views', `${__dirname}/views`);
 
 // Setting static files to be served.
 app.use('/', express.static(`${__dirname}/views/js`));
 app.use('/', express.static(`${__dirname}/views/css`));
+app.use('/front', express.static(`${__dirname}/front`));
 
+
+// Endpoints
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -24,14 +28,6 @@ app.get('/update/:value', (req, res) => {
   io.ShellDOM.header = req.params.value;
   console.log(req.params.value);
   res.json(io.ShellDOM).end();
-});
-
-app.get('/io.js', (req, res) => {
-  res.sendFile(`${__dirname}/extensions/io.js`);
-});
-
-app.get('/shelldom.js', (req, res) => {
-  res.sendFile(`${__dirname}/shelldom.js`);
 });
 
 app.get('/api', (req, res) => {
